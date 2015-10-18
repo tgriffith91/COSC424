@@ -7,15 +7,18 @@ public class SymbolTable {
 
 	static int installID(String lexeme){
 		//see if it exists already
+		if (table.contains(lexeme)) {
 			//if so return its index
-		//if not create token
-		Token newToken = new Token(lexeme, "ID", CODE++);
-		//install in the table
-		table.add(newToken);
-		
-		
+		} else {
+			//if not create token
+			Token newToken = new Token(lexeme, "ID", CODE++);
+			//install in the table
+			table.add(newToken);
+		}
+		// can return the index in either case at the end
 		//return the index of the new token
 		
-		return 0;
+		return table.indexOf(lexeme);
 	}
 }
+
