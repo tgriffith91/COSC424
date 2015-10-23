@@ -9,53 +9,20 @@ import java.io.*;
  * A lexical analyzer - part of the compiler.
  */
 public class LexicalAnalyzer {
-	
-	static String readFile(){
-		//get filename from user
-	Scanner in = new Scanner(System.in);
-	System.out.print("Enter a file name:  ");
-	String fileName = in.next();
-	System.out.println();
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
 
-	
-	Scanner inFile = null;
+		System.out.println("Please enter a line of code : ");
+		String input = in.nextLine();
 
-	// open file
-	try {
-		inFile = new Scanner( new File( fileName ) );
-	} 
-	catch ( FileNotFoundException e ) {
-		System.err.println( "Error : file not found" );
+		int startIndex = 0;
+		int endIndex = 0;
+
+		char lookahead = input.charAt(endIndex);
+		
+		while(startIndex <= input.length()){
+			System.out.println("" + nextToken());
+		}
 	}
 
-	// process file
-	while ( inFile.hasNext() ) {
-		// two buffers to read in and do all that stuff with
-
-	}
-
-	// close file
-	inFile.close();
-
-	
-	
-	String buffer = null;
-	return buffer;
-	}
-	
-	
-	//return token for next identified lexeme
-	private Token nextToken(){
-		
-		
-		return null;
-		
-		
-		
-	}
-	
-	
-	
-	
-	
 }

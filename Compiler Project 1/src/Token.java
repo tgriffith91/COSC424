@@ -1,68 +1,75 @@
 import java.lang.reflect.Field;
 
-
 public class Token {
-	static String lexeme;	//keywords and constants
-	static String type;	//returned token
-	static int code;		//the number in the symbol table
-	
-	Token(String lexeme){
+	static int lexeme; // keywords and constants number
+	static int value; // the token's index in the symbol table
+
+	// Parallel arrays used to make the symbol table
+	String[] stLex = new String[25];
+	int[] stValue = new int[25];
+
+	/*
+	 * Constructor for a token.
+	 * 
+	 * Lexeme is the constant value of the lexeme. Value is the index of the
+	 * lexeme in the symbol table. If the constant value is that of a number
+	 * then the value is the number itself.
+	 */
+	Token(int lexeme, int value) {
 		this.lexeme = lexeme;
-		SymbolTable.installID(lexeme);
-	}
-	
-	Token(String lexeme, String type, int code){
-		this.lexeme = lexeme;
-		this.type = type;
-		this.code = code;
-		SymbolTable.installID(lexeme);
-	}
-	
-	
-	public String getLexeme() {
-		return lexeme;
-	}
-	
-	public String getType() {
-		return type;
+		this.value = value;
 	}
 
-	public int getCode() {
-		return code;
+	/*
+	 * @param index - Uses the index passed to it to get the constant value from
+	 * the symbol table.
+	 * 
+	 * @return - the constant value at the index.
+	 */
+	private int getToken(int index) {
+		return stLex[index];
 	}
 
-	private int getToken(String lexeme2) {
-		return code;
+	/*
+	 * 
+	 */
+	private int installID(String lexeme){
+		//test to see if it is in the table already
+		int index = 0;
+		while((!(lexeme.equals(stLex[index])) && (stLex[index] != null)){
+			index++;
+		}
+		if(stLex[index] == null){
+			stLex[index] = lexeme;
+			stValue[index] = ID;
+		}
+		return index;
 	}
-	
-	// found this online
-	// we can make it iterate through tokens and print what we need
-	//private int nextToken(Object obj) {
-//	    for (Token token : token.getClass().getDeclaredFields()) {
-//	        //field.setAccessible(true); // if you want to modify private fields
-//	        System.out.println(field.getName()
-//	                 + " - " + field.getType()
-//	                 + " - " + field.get(obj));
-//	    }
-//	}
-	
-	// this is the exact online code
-//	public int getObject(Object obj) {
-//	    for (Field field : obj.getClass().getDeclaredFields()) {
-//	        //field.setAccessible(true); // if you want to modify private fields
-//	        System.out.println(field.getName()
-//	                 + " - " + field.getType()
-//	                 + " - " + field.get(obj));
-//	    }
-//	}
-	// this is based off that code ^^
-	public static void nextToken(Object obj) {
-		for (Field field : obj.getClass().getDeclaredFields()) {
-			//field.setAccessible(true); // if you want to modify private fields
-			System.out.println(lexeme+" "+type+" "+code+"\n");
+
+	/*
+	 * 
+	 */
+	private Token nextToken() {
+		while(lookahead == ' ' || lookahead == '\n' || lookahead == '\t'){
+			
 		}
 	}
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

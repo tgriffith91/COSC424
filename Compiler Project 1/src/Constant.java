@@ -1,32 +1,46 @@
 /*
- * Constant Class - Defines a list of tokens based on the language. 
+ * Constant Class - Defines a list of constant token values based on the language. 
  * As they are created they are added to the symbol table.
  */
 public class Constant {
-	public static final Token t = new Token("if", "keyword", 900);
-	public static final Token t1 = new Token("int", "keyword", 901);
-	public static final Token t2 = new Token("double", "keyword", 902);
-	public static final Token t3 = new Token("else", "keyword", 903);
-	public static final Token t4 = new Token("while", "keyword", 904);
-	public static final Token t5 = new Token("{", "grouping", 905);
-	public static final Token t6 = new Token("}", "grouping", 906);
-	public static final Token t7 = new Token("(", "grouping", 907);
-	public static final Token t8 = new Token(")", "grouping", 908);
-	public static final Token t9 = new Token(";", "semicolon", 909);
-	public static final Token t10 = new Token(",", "comma", 910);
-	public static final Token t11= new Token("==", "relop", 911);
-	public static final Token t12 = new Token("!=", "relop", 912);
-	public static final Token t13 = new Token("<", "relop", 913);
-	public static final Token t14 = new Token("<=", "relop", 914);
-	public static final Token t15 = new Token(">", "relop", 915);
-	public static final Token t16 = new Token(">=", "relop", 916);
-	public static final Token t17 = new Token("=", "assignop", 917);
-	public static final Token t18 = new Token("+", "addop", 918);
-	public static final Token t19 = new Token("-", "addop", 919);
-	public static final Token t20 = new Token("*", "multop", 920);
-	public static final Token t21 = new Token("/", "multop", 921);
-	public static final Token t22 = new Token("/*", "comment", 922);
-	public static final Token t23 = new Token("//", "comment", 923);
-	public static final Token t24 = new Token("*/", "comment", 924);
+
+	public static final int ID = 100;
+	public static final int NUM = 101;
 	
+	//********** keywords ***********
+	
+	public static final int IF = 102;
+	stLex[0] = "if";
+	stValue[0] = IF;
+	public static final int INT = 103;
+	stLex[1] = "int";
+	stValue[1] = INT;
+	public static final int DOUBLE = 104;
+	stLex[2] = "double";
+	stValue[2] = DOUBLE;
+	public static final int ELSE = 105;
+	stLex[3] = "else";
+	stValue[3] = ELSE;
+	public static final int WHILE = 106;
+	stLex[4] = "while";
+	stValue[4] = WHILE;
+	
+	
+	//*********other constants************
+	
+	public static final int RELOP = 107;
+	public static final int ASSIGNOP = 108;
+	public static final int ADDOP = 109;
+	public static final int MULTOP = 110;
+	public static final int LPAREN = 111;
+	public static final int RPAREN = 112;
+	public static final int LBRACE = 113;
+	public static final int RBRACE = 114;
+	public static final int SCOLON = 115;
+	public static final int COMMA = 116;
+	
+	
+	
+//	installID()
+
 }
